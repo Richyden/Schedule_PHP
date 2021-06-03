@@ -19,7 +19,8 @@
             } catch(\Exception $e) {
                 $month = new App\Date\Month();
             }
-            $firstDay = $month->getStartingDay()->modify('last monday');
+            $firstDay = $month->getStartingDay();
+            $firstDay = $firstDay->format('N') === '1' ? $firstDay : $month->getStartingDay()->modify('last monday');
         ?>
 
         <div class="d-flex flex-row align-items-center justify-content-between mx-sm-4">
